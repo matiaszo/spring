@@ -23,7 +23,7 @@ public class UserController {
         Integer isSuccesfully = service.login(data.Login(), data.Password());
 
         if (isSuccesfully == 1)
-            System.out.println("Certo o login ");
+            System.out.println("Certo o login");
         else
             System.out.println("Errado o login");
 
