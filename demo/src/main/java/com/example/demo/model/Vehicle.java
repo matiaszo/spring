@@ -17,7 +17,10 @@ public class Vehicle {
     private Integer wheelCount;
 
     @Column
-    private String type;
+    private String typeVehicle;
+
+    @Column
+    private boolean isFourWheeled;
 
     public long getId() {
         return id;
@@ -35,11 +38,19 @@ public class Vehicle {
         this.wheelCount = wheelCount;
     }
 
-    public String getType() {
-        return type;
+    public String getTypeVehicle() {
+        return typeVehicle;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTypeVehicle(String type) {
+        this.typeVehicle = type;
+    }
+
+    public boolean isIsFourWheeled() {
+        return isFourWheeled;
+    }
+
+    public void setIsFourWheeled(boolean isFourWheeled) {
+        this.isFourWheeled = isFourWheeled;
     }
 }

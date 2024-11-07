@@ -35,9 +35,18 @@ public class VehicleController {
 
     @GetMapping("/find/{type}")
     public ResponseEntity<List<VehicleDto>> getByType(@PathVariable String type){
-        List<VehicleDto> vehicles = repo.findByType(type)
+        List<VehicleDto> vehicles = repo.findByTypeVehicle(type)
         .stream()
-        .map(v -> new VehicleDto(v.getWheelCount(), v.getType()))
+        .map(v -> new VehicleDto(v.getWheelCount(), v.getTypeVehicle()))
+        .collect(Collectors.toList());
+
+        return new ResponseEntity<>(vehicles, HttpStatus.OK);
+    }
+    @GetMapping("/find/fourwhelled")
+    public ResponseEntity<List<VehicleDto>> getByType(){
+        List<VehicleDto> vehicles = repo.findByIsFourWheeledFalse()
+        .stream()
+        .map(v -> new VehicleDto(v.getWheelCount(), v.getTypeVehicle()))
         .collect(Collectors.toList());
 
         return new ResponseEntity<>(vehicles, HttpStatus.OK);
